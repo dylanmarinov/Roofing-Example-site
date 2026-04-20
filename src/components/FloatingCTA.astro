@@ -1,0 +1,100 @@
+---
+---
+<div id="floating-cta" aria-hidden="true">
+  <button id="floating-close" aria-label="Dismiss">✕</button>
+  <div class="fcta-icon">🏠</div>
+  <p class="fcta-headline">Need a Roof Quote?</p>
+  <p class="fcta-sub">Get a price now — free, no obligation.</p>
+  <button class="btn btn-orange fcta-btn" id="floating-open-modal">Get a Price Now →</button>
+</div>
+
+<style>
+  #floating-cta {
+    position: fixed;
+    right: -280px;
+    bottom: 120px;
+    width: 240px;
+    background: var(--white);
+    border-radius: 16px 0 0 16px;
+    box-shadow: -4px 4px 32px rgba(15,31,61,0.18);
+    border-left: 4px solid var(--orange);
+    padding: 24px 20px 20px;
+    z-index: 90;
+    transition: right 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    text-align: center;
+  }
+
+  #floating-cta.visible {
+    right: 0;
+  }
+
+  #floating-close {
+    position: absolute;
+    top: 10px; right: 12px;
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    color: var(--gray);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  #floating-close:hover { color: var(--text); }
+
+  .fcta-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .fcta-headline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .fcta-sub {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .fcta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 600px) {
+    #floating-cta { display: none; }
+  }
+</style>
+
+<script>
+  const cta = document.getElementById('floating-cta');
+  const closeBtn = document.getElementById('floating-close');
+  let dismissed = false;
+
+  window.addEventListener('scroll', () => {
+    if (dismissed) return;
+    if (window.scrollY > 400) {
+      cta?.classList.add('visible');
+      cta?.setAttribute('aria-hidden', 'false');
+    } else {
+      cta?.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  closeBtn?.addEventListener('click', () => {
+    dismissed = true;
+    cta?.classList.remove('visible');
+  });
+
+  document.getElementById('floating-open-modal')?.addEventListener('click', () => {
+    document.getElementById('contact-modal')?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+</script>

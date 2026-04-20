@@ -1,0 +1,232 @@
+---
+---
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+
+      <div class="contact-left reveal from-left">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-title" style="color:var(--white);">Ready for a Free Roof Inspection?</h2>
+        <span class="line-draw" style="margin-bottom:24px;"></span>
+        <p style="color:rgba(255,255,255,0.7);font-size:1.02rem;line-height:1.8;margin-bottom:36px;">
+          Whether you have storm damage, need a full replacement, or just want a professional opinion —
+          we're here to help. No pressure, no obligation.
+        </p>
+
+        <div class="contact-details">
+          <a href="tel:7275550000" class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div>
+              <span class="contact-item-label">Call or Text</span>
+              <span class="contact-item-value">(727) 555-0000</span>
+            </div>
+          </a>
+          <a href="mailto:info@tampabayroofingpros.com" class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div>
+              <span class="contact-item-label">Email Us</span>
+              <span class="contact-item-value">info@tampabayroofingpros.com</span>
+            </div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <span class="contact-item-label">Service Area</span>
+              <span class="contact-item-value">Clearwater · St. Pete · Tampa · Largo</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div>
+              <span class="contact-item-label">Hours</span>
+              <span class="contact-item-value">Mon–Sat: 7am – 6pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right reveal from-right">
+        <div class="contact-form-card">
+          <h3>Send us a Message</h3>
+          <p>We typically respond within a few hours.</p>
+
+          <form class="contact-form" action="https://formspree.io/f/xqewqyab" method="post">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(727) 555-0000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option>Roof Inspection</option>
+                <option>Residential Replacement</option>
+                <option>Commercial Roofing</option>
+                <option>Storm Damage Repair</option>
+                <option>Metal Roofing</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Us More (Optional)</label>
+              <textarea id="message" name="message" rows="3" placeholder="Describe your roofing needs, address, or any questions you have..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-orange" style="width:100%;justify-content:center;">
+              Request Free Inspection →
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  #contact {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::after {
+    content: '';
+    position: absolute;
+    bottom: -200px; left: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    color: inherit;
+    transition: opacity 0.2s;
+  }
+
+  a.contact-item:hover { opacity: 0.8; }
+
+  .contact-item-icon {
+    width: 44px; height: 44px;
+    background: rgba(249,115,22,0.15);
+    border: 1px solid rgba(249,115,22,0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 2px;
+  }
+
+  .contact-item-value {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.88);
+  }
+
+  /* Form card */
+  .contact-form-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .contact-form-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .contact-form-card > p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    margin-bottom: 28px;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+  }
+
+  input, select, textarea {
+    padding: 12px 16px;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 0.93rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(249,115,22,0.12);
+  }
+
+  textarea { resize: vertical; }
+
+  @media (max-width: 900px) {
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>

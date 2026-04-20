@@ -1,0 +1,279 @@
+---
+---
+<section id="home" class="hero">
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1632157838577-0b85ee5d8f7a?w=1600&q=80">
+      <source src="https://videos.pexels.com/video-files/17506764/17506764-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+      <source src="https://videos.pexels.com/video-files/4606782/4606782-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-pattern"></div>
+  </div>
+
+  <div class="container hero-inner">
+    <div class="hero-content reveal">
+      <div class="hero-badges">
+        <div class="badge-pill">
+          <span class="badge-stars">★★★★★</span>
+          <span>5.0 — 100+ Google Reviews</span>
+        </div>
+        <div class="badge-pill badge-cert">
+          <span>✓ Licensed & Insured</span>
+        </div>
+      </div>
+
+      <h1>
+        Tampa Bay's Most Trusted<br />
+        <span class="hero-accent">Roofing Experts</span>
+      </h1>
+
+      <p class="hero-sub">
+        From storm damage repairs to full replacements — we deliver durable,
+        beautiful roofs with transparent pricing and zero surprises.
+        Serving Clearwater, St. Pete, Tampa, Largo & surrounding areas.
+      </p>
+
+      <div class="hero-value-props">
+        <div class="vp">
+          <span class="vp-icon">🔍</span>
+          <span>Free Roof Inspection</span>
+        </div>
+        <div class="vp">
+          <span class="vp-icon">💰</span>
+          <span>Transparent Pricing</span>
+        </div>
+        <div class="vp">
+          <span class="vp-icon">⚡</span>
+          <span>Fast Turnaround</span>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-orange" data-modal="contact">Get a Free Inspection</a>
+        <a href="#gallery" class="btn btn-outline-white">View Our Work</a>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal from-right">
+      <div class="stat-card">
+        <span class="stat-num" data-count="15" data-suffix="+">15+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-count="800" data-suffix="+">800+</span>
+        <span class="stat-label">Roofs Completed</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-count="300" data-suffix="+">300+</span>
+        <span class="stat-label">5-Star Reviews</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-count="100" data-suffix="%">100%</span>
+        <span class="stat-label">Satisfaction</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 24px 160px;
+    background: var(--navy);
+  }
+
+  /* diagonal cut at bottom — taller so services peeks in */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 100%; height: 140px;
+    background: var(--off-white);
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+    z-index: 2;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--navy);
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(15,31,61,0.92) 0%,
+      rgba(15,31,61,0.75) 60%,
+      rgba(249,115,22,0.15) 100%
+    );
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--white);
+    backdrop-filter: blur(6px);
+  }
+
+  .badge-cert { border-color: rgba(8,145,178,0.6); color: #67E8F9; }
+  .badge-stars { color: #FCD34D; letter-spacing: 2px; }
+
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+
+  .hero-accent {
+    color: var(--orange);
+    -webkit-text-stroke: 0px;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .hero-value-props {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .vp {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .vp-icon { font-size: 1.1rem; }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* Stats cards */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  }
+
+  .stat-card:hover {
+    background: rgba(249,115,22,0.15);
+    border-color: rgba(249,115,22,0.4);
+    transform: translateY(-4px);
+  }
+
+  .stat-num {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .scroll-arrow {
+    animation: bounce 1.8s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-stats { display: none; }
+  }
+</style>

@@ -1,0 +1,207 @@
+---
+const services = [
+  {
+    icon: "🏠",
+    title: "Residential Roofing",
+    short: "Asphalt shingles, tile, and flat roofs for homes of every size.",
+    detail: "Full replacements and repairs for homes of all sizes using premium materials backed by manufacturer warranties.",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+  },
+  {
+    icon: "🏢",
+    title: "Commercial Roofing",
+    short: "Flat, TPO, and metal roofing solutions for businesses.",
+    detail: "TPO, EPDM, and flat roofing for businesses. We work around your schedule with minimal disruption.",
+    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80",
+  },
+  {
+    icon: "⛈️",
+    title: "Storm Damage Repair",
+    short: "Fast response for wind, hail, and hurricane damage.",
+    detail: "Emergency tarping, free damage assessments, and full insurance claim handling — we make the process painless.",
+    img: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=600&q=80",
+  },
+  {
+    icon: "⚙️",
+    title: "Metal Roofing",
+    short: "Durable, energy-efficient metal roofing that lasts 50+ years.",
+    detail: "Standing seam and metal shingle systems — hurricane-rated, energy efficient, and built to last 50+ years.",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+  },
+];
+---
+
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Roofing Services Built for Florida</h2>
+      <span class="line-draw" style="margin-bottom:20px;"></span>
+      <p class="section-sub">From routine repairs to full replacements — we handle every roofing need with the expertise Florida's weather demands.</p>
+    </div>
+
+    <div class="services-grid stagger">
+      {services.map(s => (
+        <div class="service-card">
+          <div class="service-img">
+            <img src={s.img} alt={s.title} />
+            <div class="service-hover-overlay">
+              <p class="service-detail">{s.detail}</p>
+              <a href="#contact" class="btn btn-orange">Get a Quote →</a>
+            </div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">{s.icon}</div>
+            <h3>{s.title}</h3>
+            <p>{s.short}</p>
+            <span class="service-learn">Hover to learn more ↑</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  #services {
+    background: var(--off-white);
+    padding-top: 40px;
+    margin-top: -2px;
+    position: relative;
+    z-index: 1;
+    background-image:
+      radial-gradient(rgba(27,58,107,0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* large decorative circle top-right */
+  #services::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    border: 2px solid rgba(249,115,22,0.08);
+    pointer-events: none;
+  }
+
+  /* second ring */
+  #services::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 2px solid rgba(249,115,22,0.12);
+    pointer-events: none;
+  }
+
+  .services-header {
+    margin-bottom: 48px;
+  }
+
+  .services-header .section-sub {
+    margin-top: 16px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-img {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+  .service-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .service-card:hover .service-img img {
+    transform: scale(1.08);
+  }
+
+  /* Hover overlay — slides up on hover */
+  .service-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(27,58,107,0.94);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 20px 24px;
+    gap: 14px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .service-card:hover .service-hover-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .service-detail {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.7;
+  }
+
+  .service-body {
+    padding: 24px;
+  }
+
+  .service-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .service-body h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .service-body p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .service-learn {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .service-hover-overlay { display: none; }
+    .service-learn { display: none; }
+  }
+</style>

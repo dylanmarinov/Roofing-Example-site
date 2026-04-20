@@ -1,0 +1,192 @@
+---
+---
+<div id="contact-modal" role="dialog" aria-modal="true" aria-label="Contact Us">
+  <div class="modal-panel">
+    <button id="modal-close" aria-label="Close">✕</button>
+
+    <div class="modal-header">
+      <div class="modal-icon">🏠</div>
+      <h2>Get Your Free Inspection</h2>
+      <p>Fill out the form and we'll be in touch within a few hours.</p>
+    </div>
+
+    <form action="https://formspree.io/f/xqewqyab" method="post" class="modal-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="m-name">Your Name</label>
+          <input type="text" id="m-name" name="name" placeholder="John Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="m-phone">Phone Number</label>
+          <input type="tel" id="m-phone" name="phone" placeholder="(727) 555-0000" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="m-email">Email Address</label>
+        <input type="email" id="m-email" name="email" placeholder="john@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="m-service">Service Needed</label>
+        <select id="m-service" name="service">
+          <option value="">Select a service...</option>
+          <option>Roof Inspection</option>
+          <option>Residential Replacement</option>
+          <option>Commercial Roofing</option>
+          <option>Storm Damage Repair</option>
+          <option>Metal Roofing</option>
+          <option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="m-message">Additional Details (Optional)</label>
+        <textarea id="m-message" name="message" rows="3" placeholder="Describe your roofing needs or any questions..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-orange" style="width:100%;justify-content:center;">
+        Request Free Inspection →
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+  #contact-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,18,35,0.7);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  #contact-modal.open {
+    display: flex;
+  }
+
+  .modal-panel {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 48px 40px 40px;
+    max-width: 560px;
+    width: 100%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  #modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 36px; height: 36px;
+    background: var(--gray-light);
+    border: none;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    transition: background 0.2s;
+  }
+  #modal-close:hover { background: #e0ddd8; }
+
+  .modal-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .modal-icon { font-size: 2.4rem; margin-bottom: 10px; }
+
+  .modal-header h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .modal-header p {
+    font-size: 0.9rem;
+    color: var(--gray);
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+  }
+
+  input, select, textarea {
+    padding: 11px 14px;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(249,115,22,0.12);
+  }
+
+  textarea { resize: vertical; }
+
+  @media (max-width: 600px) {
+    .modal-panel { padding: 36px 24px 28px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  function openModal() {
+    document.getElementById('contact-modal')?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('contact-modal')?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (target.closest('[data-modal="contact"]')) { e.preventDefault(); openModal(); return; }
+    if (target.closest('#modal-close')) { closeModal(); return; }
+    const modal = document.getElementById('contact-modal');
+    if (modal && target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>

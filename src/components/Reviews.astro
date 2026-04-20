@@ -1,0 +1,236 @@
+---
+const reviews = [
+  {
+    name: "Michael R.",
+    location: "Clearwater, FL",
+    rating: 5,
+    text: "Absolutely outstanding service from start to finish. They showed up on time, completed the entire roof in one day, and cleaned up everything perfectly. My roof looks incredible and I couldn't be happier. Highly recommend to anyone in Tampa Bay!",
+    service: "Full Roof Replacement",
+  },
+  {
+    name: "Sandra T.",
+    location: "St. Petersburg, FL",
+    rating: 5,
+    text: "After Hurricane Ian damaged our roof, these guys were out within 24 hours to tarp and assess. They handled everything with our insurance company and made the whole process painless. Honest, professional, and fair pricing.",
+    service: "Storm Damage Repair",
+  },
+  {
+    name: "James & Linda K.",
+    location: "Tampa, FL",
+    rating: 5,
+    text: "We got 5 quotes and they were the most transparent about pricing and materials. No hidden fees, no upsells. The crew was professional and respectful of our property. Our new metal roof looks amazing.",
+    service: "Metal Roof Installation",
+  },
+  {
+    name: "Carlos M.",
+    location: "Largo, FL",
+    rating: 5,
+    text: "Quick, clean, and professional. I was nervous about the process but they walked me through every step. The roof was done in 2 days and looks brand new. Will definitely use them again for any future work.",
+    service: "Shingle Replacement",
+  },
+];
+---
+
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-header reveal">
+      <p class="section-label">Client Reviews</p>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <span class="line-draw" style="margin-bottom:20px;"></span>
+      <p class="section-sub">
+        Real reviews from real homeowners across Tampa Bay.
+        <a href="#" class="google-link">View all reviews on Google ↗</a>
+      </p>
+    </div>
+
+    <div class="reviews-grid stagger">
+      {reviews.map(r => (
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-stars">{"★".repeat(r.rating)}</div>
+            <div class="review-google">
+              <span class="google-g">G</span>
+            </div>
+          </div>
+          <blockquote class="review-text">&ldquo;{r.text}&rdquo;</blockquote>
+          <div class="review-footer">
+            <div class="reviewer-avatar">{r.name.charAt(0)}</div>
+            <div class="reviewer-info">
+              <strong>{r.name}</strong>
+              <span>{r.location}</span>
+            </div>
+            <span class="review-service">{r.service}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="reviews-cta reveal">
+      <a href="#contact" class="btn btn-orange">Get Your Free Inspection Today</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  #reviews {
+    background: var(--off-white);
+    position: relative;
+    overflow: hidden;
+    background-image:
+      radial-gradient(rgba(27,58,107,0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  #reviews::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  #reviews::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .reviews-header {
+    margin-bottom: 56px;
+  }
+
+  .google-link {
+    color: var(--orange);
+    font-weight: 600;
+    border-bottom: 1px solid currentColor;
+    transition: opacity 0.2s;
+  }
+  .google-link:hover { opacity: 0.75; }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 52px;
+  }
+
+  .review-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--orange);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .review-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .review-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .review-stars {
+    font-size: 1.1rem;
+    color: #FBBF24;
+    letter-spacing: 2px;
+  }
+
+  .review-google {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #E5E7EB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .google-g {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+    background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC04, #34A853);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .review-text {
+    font-size: 0.93rem;
+    color: #4A4A5A;
+    line-height: 1.8;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .review-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-light);
+  }
+
+  .reviewer-avatar {
+    width: 40px; height: 40px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .reviewer-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .reviewer-info strong {
+    font-size: 0.9rem;
+    color: var(--navy);
+  }
+
+  .reviewer-info span {
+    font-size: 0.78rem;
+    color: var(--gray);
+  }
+
+  .review-service {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(249,115,22,0.08);
+    padding: 4px 10px;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+
+  .reviews-cta { text-align: center; }
+
+  @media (max-width: 700px) {
+    .reviews-grid { grid-template-columns: 1fr; }
+    .review-service { display: none; }
+  }
+</style>
